@@ -1,0 +1,10 @@
+bin/
+obj/
+CarsLecturesS21.xcodeproj/
+.DS_Store
+Project.xcconfig
+openFrameworks-Info.plist
+.vscode/browse.db
+.gitignore
+.vscode/browse.db-shm
+.vscode/browse.db-wal
