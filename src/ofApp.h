@@ -5,6 +5,9 @@
 class ofApp : public ofBaseApp{
 
 	public:
+		long counter = 0;
+
+	public:
 		void setup();
 		void update();
 		void draw();
