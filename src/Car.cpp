@@ -1,9 +1,10 @@
 #include "ofApp.h"
+#include "Car.h"
 
-void drawCar(double x, double y)
+void Car::draw()
 {
-    // double x = xPos;
-    // double y = yPos;
+    double x = this->xPos;
+    double y = this->yPos;
     ofSetColor(ofColor(255,255,255));
     // Draw body
     ofDrawRectangle(x + 0, y + 10, 60, 10);

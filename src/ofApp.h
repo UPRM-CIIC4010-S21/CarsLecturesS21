@@ -1,11 +1,14 @@
 #pragma once
 
 #include "ofMain.h"
+#include "Car.h"
 
 class ofApp : public ofBaseApp{
 
 	public:
 		long counter = 0;
+		Car c1;
+    	Car c2;
 
 	public:
 		void setup();

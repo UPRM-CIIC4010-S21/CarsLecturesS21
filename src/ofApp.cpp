@@ -1,12 +1,11 @@
 #include <iostream>
 #include "ofApp.h"
-#include "Car.h"
 
 using namespace std;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-
+    c1.setXPos(100); c1.setYPos(100);
 }
 
 //--------------------------------------------------------------
@@ -22,8 +21,12 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-    drawCar(100, 100);
-    drawCar(ofGetWindowWidth()-70, ofGetWindowHeight()-40);
+    c2.setXPos(ofGetWindowWidth()-70);
+    c2.setYPos(ofGetWindowHeight()-40);
+    c1.draw();
+    c2.draw();
+    // drawCar(100, 100);
+    // drawCar(ofGetWindowWidth()-70, ofGetWindowHeight()-40);
 
 }
 
