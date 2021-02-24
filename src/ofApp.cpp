@@ -5,7 +5,8 @@ using namespace std;
 
 //--------------------------------------------------------------
 void ofApp::setup(){
-    c1.setXPos(100); c1.setYPos(100);
+
+
 }
 
 //--------------------------------------------------------------
@@ -16,17 +17,21 @@ void ofApp::update(){
         cout << counter  / 60 << endl;
     }
 
+    int speed = 5; // Car speed in pixels per tick (1/60th of a second)
+    if (c1.getXPos()+60 < ofGetWindowWidth()) {
+        c1.setXPos(c1.getXPos() + speed);
+    }  
+
+    c2.setXPos(ofGetWindowWidth()-70);
+    c2.setYPos(ofGetWindowHeight()-40);
+
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-    c2.setXPos(ofGetWindowWidth()-70);
-    c2.setYPos(ofGetWindowHeight()-40);
     c1.draw();
     c2.draw();
-    // drawCar(100, 100);
-    // drawCar(ofGetWindowWidth()-70, ofGetWindowHeight()-40);
 
 }
 
