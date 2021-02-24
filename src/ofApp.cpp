@@ -17,10 +17,16 @@ void ofApp::update(){
         cout << counter  / 60 << endl;
     }
 
-    int speed = 5; // Car speed in pixels per tick (1/60th of a second)
-    if (c1.getXPos()+60 < ofGetWindowWidth()) {
-        c1.setXPos(c1.getXPos() + speed);
-    }  
+    // int speed = 5; // Car speed in pixels per tick (1/60th of a second)
+    if ((c1.getDirection() > 0) && c1.getXPos()+60 >= ofGetWindowWidth()) {
+        c1.setDirection(-1);
+    }
+    else if ((c1.getDirection() < 0) && (c1.getXPos() <=0)) {
+        c1.setDirection(1);
+    }
+    // else {
+    // }
+    c1.setXPos(c1.getXPos() + c1.getSpeed() * c1.getDirection());
 
     c2.setXPos(ofGetWindowWidth()-70);
     c2.setYPos(ofGetWindowHeight()-40);
