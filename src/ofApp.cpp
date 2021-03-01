@@ -15,6 +15,7 @@ void ofApp::setup(){
         cars.push_back(Car(0, laneY, 1, 5)); 
         laneY += 40;
     }
+    raceEnded = false;
 
 }
 
@@ -26,6 +27,10 @@ void ofApp::update(){
     //     cout << counter  / 60 << endl;
     // }
 
+    if (raceEnded) {
+        return; 
+    }
+
     // int speed = 5; // Car speed in pixels per tick (1/60th of a second)
     for (int i=0; i<num_cars; i++) {
         if ((cars[i].getDirection() > 0) && cars[i].getXPos()+60 >= ofGetWindowWidth()) {
@@ -36,6 +41,11 @@ void ofApp::update(){
         }
         int randSpeed = rand() % cars[i].getSpeed();
         cars[i].setXPos(cars[i].getXPos() + randSpeed * cars[i].getDirection());
+
+        if (cars[i].getXPos() <= 0 && cars[i].getDirection() < 0) {
+            raceEnded = true;
+        }
+
     }
 
     c2.setXPos(ofGetWindowWidth()-70);

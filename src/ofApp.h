@@ -13,6 +13,7 @@ class ofApp : public ofBaseApp{
     	Car c2;
 		vector<Car> cars;
 		int num_cars;
+		bool raceEnded;
 
 	public:
 		void setup();
