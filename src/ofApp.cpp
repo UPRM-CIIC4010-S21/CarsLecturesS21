@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <iostream>
 #include <vector>
 
@@ -33,7 +34,8 @@ void ofApp::update(){
         else if ((cars[i].getDirection() < 0) && (cars[i].getXPos() <=0)) {
             cars[i].setDirection(1);
         }
-        cars[i].setXPos(cars[i].getXPos() + cars[i].getSpeed() * cars[i].getDirection());
+        int randSpeed = rand() % cars[i].getSpeed();
+        cars[i].setXPos(cars[i].getXPos() + randSpeed * cars[i].getDirection());
     }
 
     c2.setXPos(ofGetWindowWidth()-70);
