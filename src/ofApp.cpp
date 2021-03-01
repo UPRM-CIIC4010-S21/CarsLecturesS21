@@ -48,6 +48,11 @@ void ofApp::update(){
 
     }
 
+    int maxDistance = (cars[i].getDirection() > 0) ? cars[i].getXPos() : (ofGetWidth() - cars[i].getXPos());
+    for (int i=0; i<num_cars; i++) {
+        
+    }
+
     c2.setXPos(ofGetWindowWidth()-70);
     c2.setYPos(ofGetWindowHeight()-40);
 
