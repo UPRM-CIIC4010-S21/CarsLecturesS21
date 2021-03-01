@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 #include "ofMain.h"
 #include "Car.h"
 
@@ -9,6 +11,8 @@ class ofApp : public ofBaseApp{
 		long counter = 0;
 		Car c1;
     	Car c2;
+		vector<Car> cars;
+		int num_cars;
 
 	public:
 		void setup();

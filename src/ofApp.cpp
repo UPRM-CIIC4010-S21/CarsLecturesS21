@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+
 #include "ofApp.h"
 
 using namespace std;
@@ -6,27 +8,33 @@ using namespace std;
 //--------------------------------------------------------------
 void ofApp::setup(){
 
+    num_cars = 10;
+    int laneY = 0;
+    for (int i=0; i<num_cars; i++) {
+        cars.push_back(Car(0, laneY, 1, 5)); 
+        laneY += 40;
+    }
 
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
 
-    counter++;
-    if (counter % 60 == 0) {
-        cout << counter  / 60 << endl;
-    }
+    // counter++;
+    // if (counter % 60 == 0) {
+    //     cout << counter  / 60 << endl;
+    // }
 
     // int speed = 5; // Car speed in pixels per tick (1/60th of a second)
-    if ((c1.getDirection() > 0) && c1.getXPos()+60 >= ofGetWindowWidth()) {
-        c1.setDirection(-1);
+    for (int i=0; i<num_cars; i++) {
+        if ((cars[i].getDirection() > 0) && cars[i].getXPos()+60 >= ofGetWindowWidth()) {
+            cars[i].setDirection(-1);
+        }
+        else if ((cars[i].getDirection() < 0) && (cars[i].getXPos() <=0)) {
+            cars[i].setDirection(1);
+        }
+        cars[i].setXPos(cars[i].getXPos() + cars[i].getSpeed() * cars[i].getDirection());
     }
-    else if ((c1.getDirection() < 0) && (c1.getXPos() <=0)) {
-        c1.setDirection(1);
-    }
-    // else {
-    // }
-    c1.setXPos(c1.getXPos() + c1.getSpeed() * c1.getDirection());
 
     c2.setXPos(ofGetWindowWidth()-70);
     c2.setYPos(ofGetWindowHeight()-40);
@@ -36,8 +44,13 @@ void ofApp::update(){
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-    c1.draw();
     c2.draw();
+
+    for (int i=0; i<num_cars; i++) {
+        cars[i].draw();
+    }
+
+
 
 }
 
