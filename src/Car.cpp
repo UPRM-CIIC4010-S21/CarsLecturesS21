@@ -1,11 +1,11 @@
 #include "ofApp.h"
 #include "Car.h"
 
-void Car::draw()
+void Car::draw(ofColor c)
 {
     double x = this->xPos;
     double y = this->yPos;
-    ofSetColor(ofColor(255,255,255));
+    ofSetColor(c);
     // Draw body
     ofDrawRectangle(x + 0, y + 10, 60, 10);
     // Draw roof and windshields
@@ -16,6 +16,10 @@ void Car::draw()
     ofSetColor(ofColor(255,255,255));
     // Draw tires
     ofDrawCircle(x + 15, y + 25, 5);
-    ofDrawCircle(x + 45, y + 25, 5);
+    ofDrawCircle(x + 45, y + 25, 5);  
+}
 
+void Car::draw()
+{
+    this->draw(Color(255,255,255));
 }

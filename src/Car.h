@@ -1,5 +1,7 @@
 #pragma once
 
+#include "ofApp.h"
+
 class Car {
 
     private:
@@ -28,6 +30,8 @@ class Car {
         void setSpeed(int s) { this->speed = s; };
 
         void draw();
+        void draw(ofColor c);
+
 
 };
 
