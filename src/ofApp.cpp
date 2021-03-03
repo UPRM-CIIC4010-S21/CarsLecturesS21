@@ -9,11 +9,12 @@ using namespace std;
 //--------------------------------------------------------------
 void ofApp::setup(){
 
-    num_cars = 10;
+    int laneHeight = 40;
+    num_cars = ofGetWindowHeight() / laneHeight;
     int laneY = 0;
     for (int i=0; i<num_cars; i++) {
         cars.push_back(Car(0, laneY, 1, 5)); 
-        laneY += 40;
+        laneY += laneHeight;
     }
     raceEnded = false;
 
