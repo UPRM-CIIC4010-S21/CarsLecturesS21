@@ -14,6 +14,7 @@ class ofApp : public ofBaseApp{
 		vector<Car> cars;
 		int num_cars;
 		bool raceEnded;
+		int currentMaxCar;
 
 	public:
 		void setup();

@@ -48,10 +48,16 @@ void ofApp::update(){
 
     }
 
-    int maxDistance = (cars[i].getDirection() > 0) ? cars[i].getXPos() : (ofGetWidth() - cars[i].getXPos());
-    for (int i=0; i<num_cars; i++) {
-        
+    int maxDistance = (cars[0].getDirection() > 0) ? cars[0].getXPos() : (ofGetWidth() + ofGetWidth() - cars[0].getXPos() - 60);
+    int maxCar = 0;
+    for (int i=1; i<num_cars; i++) {
+        int distanceNextCar = (cars[i].getDirection() > 0) ? cars[i].getXPos() : (ofGetWidth() + ofGetWidth() - cars[i].getXPos() - 60);
+        if (distanceNextCar > maxDistance) {
+            maxDistance = distanceNextCar;
+            maxCar = i;
+        }
     }
+    currentMaxCar = maxCar;
 
     c2.setXPos(ofGetWindowWidth()-70);
     c2.setYPos(ofGetWindowHeight()-40);
@@ -64,7 +70,12 @@ void ofApp::draw(){
     c2.draw();
 
     for (int i=0; i<num_cars; i++) {
-        cars[i].draw();
+        if (i == currentMaxCar) {
+            cars[i].draw(ofColor(255,0,0));
+        }
+        else {
+            cars[i].draw();
+        }
     }
 
 

@@ -21,5 +21,5 @@ void Car::draw(ofColor c)
 
 void Car::draw()
 {
-    this->draw(Color(255,255,255));
+    this->draw(ofColor(255,255,255));
 }
