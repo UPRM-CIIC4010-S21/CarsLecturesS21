@@ -32,6 +32,5 @@ class Car {
         void draw();
         void draw(ofColor c);
 
-
 };
 
