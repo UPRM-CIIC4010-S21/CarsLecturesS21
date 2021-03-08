@@ -3,15 +3,16 @@
 #include <vector>
 
 #include "ofMain.h"
-#include "Car.h"
+#include "PoliceCar.h"
+
 
 class ofApp : public ofBaseApp{
 
 	public:
 		long counter = 0;
-		Car c1;
-    	Car c2;
-		vector<Car> cars;
+		PoliceCar c1;
+    	PoliceCar c2;
+		vector<Car*> cars;
 		int num_cars;
 		bool raceEnded;
 		int currentMaxCar;

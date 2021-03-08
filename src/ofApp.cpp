@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "ofApp.h"
+#include "PoliceCar.h"
 
 using namespace std;
 
@@ -13,7 +14,12 @@ void ofApp::setup(){
     num_cars = ofGetWindowHeight() / laneHeight;
     int laneY = 0;
     for (int i=0; i<num_cars; i++) {
-        cars.push_back(Car(0, laneY, 1, 5)); 
+        if (i % 2 == 0) {
+            cars.push_back(new PoliceCar(0, laneY, 1, 5)); 
+        }
+        else {
+            cars.push_back(new Car(0, laneY, 1, 5)); 
+        }
         laneY += laneHeight;
     }
     raceEnded = false;
@@ -34,25 +40,25 @@ void ofApp::update(){
 
     // int speed = 5; // Car speed in pixels per tick (1/60th of a second)
     for (int i=0; i<num_cars; i++) {
-        if ((cars[i].getDirection() > 0) && cars[i].getXPos()+60 >= ofGetWindowWidth()) {
-            cars[i].setDirection(-1);
+        if ((cars[i]->getDirection() > 0) && cars[i]->getXPos()+60 >= ofGetWindowWidth()) {
+            cars[i]->setDirection(-1);
         }
-        else if ((cars[i].getDirection() < 0) && (cars[i].getXPos() <=0)) {
-            cars[i].setDirection(1);
+        else if ((cars[i]->getDirection() < 0) && (cars[i]->getXPos() <=0)) {
+            cars[i]->setDirection(1);
         }
-        int randSpeed = rand() % cars[i].getSpeed();
-        cars[i].setXPos(cars[i].getXPos() + randSpeed * cars[i].getDirection());
+        int randSpeed = rand() % cars[i]->getSpeed();
+        cars[i]->setXPos(cars[i]->getXPos() + randSpeed * cars[i]->getDirection());
 
-        if (cars[i].getXPos() <= 0 && cars[i].getDirection() < 0) {
+        if (cars[i]->getXPos() <= 0 && cars[i]->getDirection() < 0) {
             raceEnded = true;
         }
 
     }
 
-    int maxDistance = (cars[0].getDirection() > 0) ? cars[0].getXPos() : (ofGetWidth() + ofGetWidth() - cars[0].getXPos() - 60);
+    int maxDistance = (cars[0]->getDirection() > 0) ? cars[0]->getXPos() : (ofGetWidth() + ofGetWidth() - cars[0]->getXPos() - 60);
     int maxCar = 0;
     for (int i=1; i<num_cars; i++) {
-        int distanceNextCar = (cars[i].getDirection() > 0) ? cars[i].getXPos() : (ofGetWidth() + ofGetWidth() - cars[i].getXPos() - 60);
+        int distanceNextCar = (cars[i]->getDirection() > 0) ? cars[i]->getXPos() : (ofGetWidth() + ofGetWidth() - cars[i]->getXPos() - 60);
         if (distanceNextCar > maxDistance) {
             maxDistance = distanceNextCar;
             maxCar = i;
@@ -72,10 +78,10 @@ void ofApp::draw(){
 
     for (int i=0; i<num_cars; i++) {
         if (i == currentMaxCar) {
-            cars[i].draw(ofColor(255,0,0));
+            cars[i]->draw(ofColor(255,0,0));
         }
         else {
-            cars[i].draw();
+            cars[i]->draw();
         }
     }
 

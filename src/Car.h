@@ -29,8 +29,8 @@ class Car {
         void setDirection(int d) { this->direction = d; };
         void setSpeed(int s) { this->speed = s; };
 
-        void draw();
-        void draw(ofColor c);
+        virtual void draw();
+        virtual void draw(ofColor c);
 
 };
 
