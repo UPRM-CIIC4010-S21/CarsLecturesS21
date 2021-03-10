@@ -12,7 +12,7 @@ class ofApp : public ofBaseApp{
 		long counter = 0;
 		PoliceCar c1;
     	PoliceCar c2;
-		vector<Car*> cars;
+		vector<Vehicle*> cars;
 		int num_cars;
 		bool raceEnded;
 		int currentMaxCar;
