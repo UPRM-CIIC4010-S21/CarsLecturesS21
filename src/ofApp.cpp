@@ -4,6 +4,7 @@
 
 #include "ofApp.h"
 #include "PoliceCar.h"
+#include "Truck.h"
 
 using namespace std;
 
@@ -13,12 +14,19 @@ void ofApp::setup(){
     int laneHeight = 40;
     num_cars = ofGetWindowHeight() / laneHeight;
     int laneY = 0;
-    for (int i=0; i<num_cars; i++) {
-        if (i % 2 == 0) {
-            cars.push_back(new PoliceCar(0, laneY, 1, 5)); 
+    for (int i = 0; i < num_cars; i++)
+    {
+        if (i % 3 == 0)
+        {
+            cars.push_back(new PoliceCar(0, laneY, 1, 5));
         }
-        else {
-            cars.push_back(new Car(0, laneY, 1, 5)); 
+        else if (i % 3 == 1)
+        {
+            cars.push_back(new Car(0, laneY, 1, 5));
+        }
+        else
+        {
+            cars.push_back(new Truck(0, laneY, 1, 5));
         }
         laneY += laneHeight;
     }
