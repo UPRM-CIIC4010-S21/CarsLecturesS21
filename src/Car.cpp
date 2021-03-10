@@ -3,8 +3,8 @@
 
 void Car::draw(ofColor c)
 {
-    double x = this->xPos;
-    double y = this->yPos;
+    double x = this->getXPos();
+    double y = this->getYPos();
     ofSetColor(c);
     // Draw body
     ofDrawRectangle(x + 0, y + 10, 60, 10);
