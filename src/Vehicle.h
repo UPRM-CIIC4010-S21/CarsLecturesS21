@@ -32,5 +32,7 @@ class Vehicle {
         virtual void draw() = 0;
         virtual void draw(ofColor c) = 0;
 
+        virtual bool equals(Vehicle *v2) = 0;
+
 };
 

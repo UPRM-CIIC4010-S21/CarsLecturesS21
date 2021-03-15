@@ -23,3 +23,13 @@ void Car::draw()
 {
     this->draw(ofColor(255,255,255));
 }
+
+bool Car::equals(Vehicle *vehicle)
+{
+
+    Car *c2 = dynamic_cast<Car *>(vehicle);
+    if (c2 != nullptr) {
+        return true;
+    }
+    return false;
+}

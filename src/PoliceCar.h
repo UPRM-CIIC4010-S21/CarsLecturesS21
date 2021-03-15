@@ -11,8 +11,9 @@ class PoliceCar: public Car {
 
         PoliceCar(): Car(0,0,1,20) {};
 
-        void draw();
-        void draw(ofColor c);
+        virtual void draw();
+        virtual void draw(ofColor c);
+        virtual bool equals(Vehicle *vehicle);
 
 };
 

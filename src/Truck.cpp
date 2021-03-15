@@ -36,3 +36,12 @@ void Truck::draw()
 {
     this->draw(ofColor(255,255,255));
 }
+
+bool Truck::equals(Vehicle *vehicle)
+{
+    Truck *c2 = dynamic_cast<Truck *>(vehicle);
+    if (c2 != nullptr) {
+        return true;
+    }
+    return false;
+}
