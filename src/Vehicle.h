@@ -1,8 +1,9 @@
 #pragma once
 
 #include "ofApp.h"
+#include "Raceable.h"
 
-class Vehicle {
+class Vehicle: public Raceable {
 
     private:
         double xPos;
@@ -32,7 +33,7 @@ class Vehicle {
         virtual void draw() = 0;
         virtual void draw(ofColor c) = 0;
 
-        virtual bool equals(Vehicle *v2) = 0;
+        virtual bool equals(Raceable *v2) = 0;
 
 };
 

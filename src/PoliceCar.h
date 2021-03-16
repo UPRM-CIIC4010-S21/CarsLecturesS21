@@ -2,6 +2,7 @@
 
 #include "ofApp.h"
 #include "Car.h"
+#include "Raceable.h"
 
 class PoliceCar: public Car {
 
@@ -13,7 +14,7 @@ class PoliceCar: public Car {
 
         virtual void draw();
         virtual void draw(ofColor c);
-        virtual bool equals(Vehicle *vehicle);
+        virtual bool equals(Raceable *vehicle);
 
 };
 

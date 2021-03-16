@@ -3,8 +3,10 @@
 #include <vector>
 
 #include "ofApp.h"
+#include "Car.h"
 #include "PoliceCar.h"
 #include "Truck.h"
+#include "Dog.h"
 
 using namespace std;
 
@@ -16,17 +18,21 @@ void ofApp::setup(){
     int laneY = 0;
     for (int i = 0; i < num_cars; i++)
     {
-        if (i % 3 == 0)
+        if (i % 4 == 0)
         {
-            cars.push_back(new PoliceCar(0, laneY, 1, 5));
+            racers.push_back(new PoliceCar(0, laneY, 1, 5));
         }
-        else if (i % 3 == 1)
+        else if (i % 4 == 1)
         {
-            cars.push_back(new Car(0, laneY, 1, 5));
+            racers.push_back(new Car(0, laneY, 1, 5));
         }
+        else if (i % 4 == 2)
+        {
+            racers.push_back(new Dog(0, laneY, 1, 5));
+        }       
         else
         {
-            cars.push_back(new Truck(0, laneY, 1, 5));
+            racers.push_back(new Truck(0, laneY, 1, 5));
         }
         laneY += laneHeight;
     }
@@ -48,25 +54,25 @@ void ofApp::update(){
 
     // int speed = 5; // Car speed in pixels per tick (1/60th of a second)
     for (int i=0; i<num_cars; i++) {
-        if ((cars[i]->getDirection() > 0) && cars[i]->getXPos()+60 >= ofGetWindowWidth()) {
-            cars[i]->setDirection(-1);
+        if ((racers[i]->getDirection() > 0) && racers[i]->getXPos()+60 >= ofGetWindowWidth()) {
+            racers[i]->setDirection(-1);
         }
-        else if ((cars[i]->getDirection() < 0) && (cars[i]->getXPos() <=0)) {
-            cars[i]->setDirection(1);
+        else if ((racers[i]->getDirection() < 0) && (racers[i]->getXPos() <=0)) {
+            racers[i]->setDirection(1);
         }
-        int randSpeed = rand() % cars[i]->getSpeed();
-        cars[i]->setXPos(cars[i]->getXPos() + randSpeed * cars[i]->getDirection());
+        int randSpeed = rand() % racers[i]->getSpeed();
+        racers[i]->setXPos(racers[i]->getXPos() + randSpeed * racers[i]->getDirection());
 
-        if (cars[i]->getXPos() <= 0 && cars[i]->getDirection() < 0) {
+        if (racers[i]->getXPos() <= 0 && racers[i]->getDirection() < 0) {
             raceEnded = true;
         }
 
     }
 
-    int maxDistance = (cars[0]->getDirection() > 0) ? cars[0]->getXPos() : (ofGetWidth() + ofGetWidth() - cars[0]->getXPos() - 60);
+    int maxDistance = (racers[0]->getDirection() > 0) ? racers[0]->getXPos() : (ofGetWidth() + ofGetWidth() - racers[0]->getXPos() - 60);
     int maxCar = 0;
     for (int i=1; i<num_cars; i++) {
-        int distanceNextCar = (cars[i]->getDirection() > 0) ? cars[i]->getXPos() : (ofGetWidth() + ofGetWidth() - cars[i]->getXPos() - 60);
+        int distanceNextCar = (racers[i]->getDirection() > 0) ? racers[i]->getXPos() : (ofGetWidth() + ofGetWidth() - racers[i]->getXPos() - 60);
         if (distanceNextCar > maxDistance) {
             maxDistance = distanceNextCar;
             maxCar = i;
@@ -74,22 +80,20 @@ void ofApp::update(){
     }
     currentMaxCar = maxCar;
 
-    c2.setXPos(ofGetWindowWidth()-70);
-    c2.setYPos(ofGetWindowHeight()-40);
+    // c2.setXPos(ofGetWindowWidth()-70);
+    // c2.setYPos(ofGetWindowHeight()-40);
 
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
 
-    c2.draw();
-
     for (int i=0; i<num_cars; i++) {
         if (i == currentMaxCar) {
-            cars[i]->draw(ofColor(255,0,0));
+            racers[i]->draw(ofColor(255,0,0));
         }
         else {
-            cars[i]->draw();
+            racers[i]->draw();
         }
     }
 

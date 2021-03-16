@@ -18,7 +18,7 @@ void PoliceCar::draw()
     this->draw(ofColor(255,255,255));
 }
 
-bool PoliceCar::equals(Vehicle *vehicle)
+bool PoliceCar::equals(Raceable *vehicle)
 {
     PoliceCar *c2 = dynamic_cast<PoliceCar *>(vehicle);
     if (c2 != nullptr) {
