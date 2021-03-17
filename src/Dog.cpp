@@ -34,4 +34,16 @@ bool Dog::equals(Raceable *v2)
     if (c2 != nullptr) {
         return true;
     }
-    return false;}
+    return false;
+    
+}
+
+void Dog::eat()
+{
+    cout << "Dog is eating" << endl;
+};
+
+string Dog::yell()
+{
+    return "JauJau";
+};

@@ -1,6 +1,8 @@
 
 #pragma once
 
+#include <string>
+
 #include "ofMain.h"
 #include "Raceable.h"
 #include "Animal.h"
@@ -31,5 +33,8 @@ class Dog: public Raceable, public Animal {
         virtual void draw(ofColor c);
 
         virtual bool equals(Raceable *v2);
+
+        virtual void eat();
+        virtual string yell();
 
 };
