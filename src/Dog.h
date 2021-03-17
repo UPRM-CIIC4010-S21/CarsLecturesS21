@@ -3,8 +3,9 @@
 
 #include "ofMain.h"
 #include "Raceable.h"
+#include "Animal.h"
 
-class Dog: public Raceable {
+class Dog: public Raceable, public Animal {
 
     private:
     double coordinates[2];

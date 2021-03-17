@@ -1,4 +1,3 @@
-bin/
 obj/
 CarsLecturesS21.xcodeproj/
 .DS_Store
@@ -8,3 +7,6 @@ openFrameworks-Info.plist
 .gitignore
 .vscode/browse.db-shm
 .vscode/browse.db-wal
+bin/CarsLecturesS21_debug.app/Contents/MacOS/CarsLecturesS21_debug
+bin/CarsLecturesS21_debug.app/Contents/Info.plist
+bin/CarsLecturesS21_debug.app/Contents/MacOS/libfmodex.dylib
