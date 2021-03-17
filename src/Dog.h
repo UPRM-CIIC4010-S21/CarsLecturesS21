@@ -1,6 +1,7 @@
 
 #pragma once
 
+#include "ofMain.h"
 #include "Raceable.h"
 
 class Dog: public Raceable {

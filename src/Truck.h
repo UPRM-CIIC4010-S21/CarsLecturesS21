@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ofApp.h"
+#include "ofMain.h"
 #include "Vehicle.h"
 
 class Truck: public Vehicle {

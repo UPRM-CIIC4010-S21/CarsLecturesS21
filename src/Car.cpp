@@ -1,4 +1,4 @@
-#include "ofApp.h"
+#include "ofMain.h"
 #include "Car.h"
 
 void Car::draw(ofColor c)

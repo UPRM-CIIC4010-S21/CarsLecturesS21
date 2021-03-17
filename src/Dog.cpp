@@ -28,7 +28,7 @@ void Dog::draw(ofColor c)
 
 }
 
-bool equals(Raceable *v2)
+bool Dog::equals(Raceable *v2)
 {
     Dog *c2 = dynamic_cast<Dog *>(v2);
     if (c2 != nullptr) {
